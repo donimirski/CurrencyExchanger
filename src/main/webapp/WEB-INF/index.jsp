@@ -1,44 +1,11 @@
-
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Currency-Exchenger</title>
-    <link rel="stylesheet" href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css">
-    <style>
-        body{
-            background-color: lightgrey;
-        }
-        #kontener{
-            margin-left: 15%;
-        }
-        form{
-            margin-right: 60%;
-        }
-        #inlineFormCustomSelect1{
-            background-color: #ffed9f;
+    <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" type="text/css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 
-        }#inlineFormCustomSelect2{
-            background-color: #ffed9f;
-        }
-        #staticresult{
-            background-color: #ffed9f;
-        }
-        #radiobtn1{
-            color: white;
-            font-size: 20px;
-        }
-        #radiobtn2{
-            color: white;
-            font-size: 20px;
-        }
-        #data{
-            background-color: #ffed9f;
-        }
-        #amountToBeExchanged{
-            background-color: #ffed9f;
-        }
-    </style>
 </head>
 <body>
 <h1 align="center">Currency Exchanger</h1>
@@ -48,7 +15,7 @@
             <a href="index.jsp"> <input type="radio" name="options" id="option1" > Kalkulator </a>
         </label>
         <label class="btn btn-outline-warning" id="radiobtn2">
-            <a href="table.jsp"><input type="radio" name="options" id="option2" > Kursy Walut </a>
+            <a href="../table.jsp"><input type="radio" name="options" id="option2" > Kursy Walut </a>
         </label>
     </div>
 </div>

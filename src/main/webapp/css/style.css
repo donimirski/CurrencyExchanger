@@ -1,0 +1,40 @@
+body{
+    background-color: lightgrey;
+}
+#kontener{
+    margin-left: 15%;
+}
+h1{
+    font-family: "Berlin Sans FB";
+}
+form{
+    margin-right: 60%;
+}
+p{
+    font-family: "Berlin Sans FB";
+}
+#inlineFormCustomSelect1{
+    background-color: #ffed9f;
+
+}#inlineFormCustomSelect2{
+     background-color: #ffed9f;
+ }
+#staticresult{
+    background-color: #ffed9f;
+}
+#radiobtn1{
+    font-family: "Berlin Sans FB";
+    color: white;
+    font-size: 20px;
+}
+#radiobtn2{
+    font-family: "Berlin Sans FB";
+    color: white;
+    font-size: 20px;
+}
+#data{
+    background-color: #ffed9f;
+}
+#amountToBeExchanged{
+    background-color: #ffed9f;
+}

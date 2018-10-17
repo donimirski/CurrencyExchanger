@@ -22,9 +22,6 @@ public class CurrencyExchangerApplicationTests {
     @Test
     public void someshit() {
         NbpExchangeRateDownloader downloader = new NbpExchangeRateDownloader(new RestTemplate());
-        String abc = downloader.getRateInfoInJson("gbp", "2012-01-02");
-        System.out.println(abc);
-
-
+        downloader.getRateInfoInJson("gbp", "2019-01-02");
     }
 }
