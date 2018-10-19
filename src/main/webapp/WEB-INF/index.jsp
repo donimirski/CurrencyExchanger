@@ -59,7 +59,7 @@
         </div>
         </br>
     <div class="col">
-    <button type="button" class="btn btn-success">Oblicz</button>
+    <button type="button" class="btn btn-success" id="buttonSend">Oblicz</button>
     </div>
     </br>
         <p>Wynik:</p>
@@ -74,3 +74,22 @@
 
 </body>
 </html>
+
+<script>
+    $('#buttonSend').click(function () {
+        var enteredValue = $('#inlineFormCustomSelect2').val();
+        var enteredDate = $('#data').val();
+
+    $.ajax({
+        type: "GET",
+        url: "/ExchangeController/" + enteredValue + "/" + enteredDate,
+        success: function (returnedPrice) {
+            $('#staticresult').val(returnedPrice.val())
+        },
+        error:function (returnedPrice) {
+            console.log(returnedPrice);
+            alert(returnedPrice.responseJSON.errorMessage || returnedPrice.responseJSON.message)
+        }
+    })
+    })
+</script>
