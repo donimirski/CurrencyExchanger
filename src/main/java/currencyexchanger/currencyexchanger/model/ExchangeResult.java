@@ -20,4 +20,9 @@ public class ExchangeResult {
         this.returnedPrice = returnedPrice;
         this.httpCodeStatus = httpCodeStatus;
     }
+
+    public ExchangeResult(String errorMessage, HttpStatus httpCodeStatus) {
+        this.errorMessage = errorMessage;
+        this.httpCodeStatus = httpCodeStatus;
+    }
 }

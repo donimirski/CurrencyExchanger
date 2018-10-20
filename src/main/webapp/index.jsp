@@ -1,11 +1,15 @@
-<html>
+<!Doctype html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="pl">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Currency-Exchenger</title>
     <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" type="text/css"
           rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
-
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <h1 align="center">Currency Exchanger</h1>
@@ -15,28 +19,16 @@
             <a href="index.jsp"> <input type="radio" name="options" id="option1" > Kalkulator </a>
         </label>
         <label class="btn btn-outline-warning" id="radiobtn2">
-            <a href="../table.jsp"><input type="radio" name="options" id="option2" > Kursy Walut </a>
+            <a href="table.jsp"><input type="radio" name="options" id="option2" > Kursy Walut </a>
         </label>
     </div>
 </div>
 
 <div class="container-fluid" id="kontener">
     <form >
-        <div class="col">
-            <p>Wybierz walute poczatkowa:</p>
-            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect1"></label>
-            <select class="custom-select mr-sm-1" id="inlineFormCustomSelect1">
-                <option selected>  </option>
-                <option value="1">PLN</option>
-                <option value="2">EUR</option>
-                <option value="3">USD</option>
-                <option value="4">CHF</option>
-                <option value="5">GBP</option>
-            </select>
-        </div>
         </br>
     <div class="col">
-        <p>Podaj kwote:</p>
+        <p>Podaj kwote w PLN:</p>
         <input type="number" class="text-area" id="amountToBeExchanged">
     </div>
         </br>
@@ -49,12 +41,12 @@
             <p>Wybierz walute docelowa:</p>
             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect2"></label>
             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect2">
-                <option selected>  </option>
-                <option value="1">PLN</option>
-                <option value="2">EUR</option>
-                <option value="3">USD</option>
-                <option value="4">CHF</option>
-                <option value="5">GBP</option>
+                <%--<option selected>  </option>--%>
+                <%--<option value="PLN">PLN</option>--%>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="CHF">CHF</option>
+                <option value="GBP">GBP</option>
             </select>
         </div>
         </br>
@@ -76,20 +68,24 @@
 </html>
 
 <script>
-    $('#buttonSend').click(function () {
-        var enteredValue = $('#inlineFormCustomSelect2').val();
-        var enteredDate = $('#data').val();
 
-    $.ajax({
-        type: "GET",
-        url: "/ExchangeController/" + enteredValue + "/" + enteredDate,
-        success: function (returnedPrice) {
-            $('#staticresult').val(returnedPrice.val())
-        },
-        error:function (returnedPrice) {
-            console.log(returnedPrice);
-            alert(returnedPrice.responseJSON.errorMessage || returnedPrice.responseJSON.message)
-        }
-    })
-    })
+    $('#buttonSend').click(function () {
+        $.ajax({
+            type: "POST",
+            url: '/exchange/',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                value: $('#amountToBeExchanged').val(),
+                exchangeDate: $('#data').val(),
+                currency: $('#inlineFormCustomSelect2').val()
+            }),
+            success: function (result) {
+                $('#staticresult').val(result.returnedPrice)
+            },
+            error: function (result) {
+                alert(result.error)
+            }
+        });
+    });
 </script>
+

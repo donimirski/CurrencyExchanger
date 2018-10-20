@@ -10,6 +10,4 @@ public class ServletInitializer extends SpringBootServletInitializer {
         return application.sources(CurrencyExchangerApplication.class);
     }
 
-    //comment
-
 }

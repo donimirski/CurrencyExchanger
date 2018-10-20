@@ -8,7 +8,7 @@ public class ExchangeViewController {
 
     @RequestMapping("/")
     public String welcome() {
-        return "index";
+        return "/index.jsp";
     }
 
 
